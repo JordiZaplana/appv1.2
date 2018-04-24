@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ListPage_1 } from '../pages/list_1/list_1';
+import { historicoSensores } from '../pages/historicoSensores/historicoSensores';
+import { historicoSeguridad } from '../pages/historicoSeguridad/historicoSeguridad';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,6 +27,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Sensores', component: ListPage },
       { title: 'Seguridad', component: ListPage_1 }
+
     ];
 
   }
