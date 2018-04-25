@@ -5,7 +5,7 @@ import { NavController } from 'ionic-angular';
   selector: 'page-list',
   templateUrl: 'historicoSeguridad.html'
 })
-export class historicoSeguridad {
+export class historicoSeguridad_1 {
   constructor(public navCtrl: NavController) {
   }
 //  goToHistRicoSensores(params){

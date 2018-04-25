@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { historicoSeguridad } from '../historicoSeguridad/historicoSeguridad';
+import { historicoSeguridad_1 } from '../historicoSeguridad/historicoSeguridad';
+
 
 @Component({
   selector: 'page-list',
@@ -10,13 +11,11 @@ export class ListPage_1 {
   constructor(public navCtrl: NavController) {
   }
   pushPage_his_seg() {
-  this.navCtrl.push(historicoSeguridad);
+  this.navCtrl.push(historicoSeguridad_1);
   }
+  
 
-//  goToHistRicoSensores(params){
-//    if (!params) params = {};
-//  this.navCtrl.push(HistRicoSensoresPage);
-//  }
+
 }
 
 

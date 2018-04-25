@@ -6,8 +6,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ListPage_1 } from '../pages/list_1/list_1';
-import { historicoSensores } from '../pages/historicoSensores/historicoSensores';
-import { historicoSeguridad } from '../pages/historicoSeguridad/historicoSeguridad';
+import { historicoSensores_1 } from '../pages/historicoSensores/historicoSensores';
+import { historicoSeguridad_1} from '../pages/historicoSeguridad/historicoSeguridad';
+import { toolsConfig_1 } from '../pages/toolsConfig/toolsConfig';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,8 +19,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     ListPage_1,
-    historicoSensores,
-    historicoSeguridad
+    historicoSensores_1,
+    historicoSeguridad_1,
+    toolsConfig_1
 
   ],
   imports: [
@@ -32,8 +34,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     ListPage_1,
-    historicoSensores,
-    historicoSeguridad
+    historicoSensores_1,
+    historicoSeguridad_1,
+    toolsConfig_1
   ],
   providers: [
     StatusBar,
