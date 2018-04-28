@@ -8,13 +8,14 @@
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only>
-        <ion-icon name="notifications"></ion-icon>
+        <ion-icon name="notifications" ></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
+  
 </ion-header>
 <ion-content padding id="page3">
-  <button id="sensores-button1" ion-button color="positive" block on-click="pushPage_his_sen()" >
+  <button id="sensores-button1" ion-button color="positive" block on-click="init()" >
     Histórico
   </button>
   <form id="sensores-form1">
@@ -22,11 +23,13 @@
       <ion-label>
         En tiempo real:
       </ion-label>
-      <ion-select name="">
+      <ion-select name="" >
         <ion-option></ion-option>
         <ion-option>
           Humedad
+      
         </ion-option>
+      
         <ion-option>
           CO2
         </ion-option>
@@ -40,7 +43,14 @@
           Temperatura
         </ion-option>
       </ion-select>
+      
     </ion-item>
   </form>
   <div id="sensores-container1"></div>
+
+</ion-content>
+
+<ion-content>
+<div ng-show="init()" >Oh its <span>"the value for number is: " +  init() </span>
+</div>
 </ion-content>

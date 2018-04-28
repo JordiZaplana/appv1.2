@@ -15,8 +15,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
-
+import { AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database';
+import * as firebase from "firebase";
+var config = {
+  apiKey: "AIzaSyBIEHKaOP-UGYOnNPIX65DwTOER9lZD8mg",
+  databaseURL: "https://tfg-app-v1.firebaseio.com",
+  authDomain: "tfg-app-v1.firebaseapp.com",
+  projectId: "tfg-app-v1"
+  //storageBucket: "tfg-app-v1.appspot.com"
+};
+firebase.initializeApp(config);
 
 
 
@@ -51,6 +59,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
   providers: [
     StatusBar,
     AngularFireDatabase,
+    AngularFireDatabaseModule,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

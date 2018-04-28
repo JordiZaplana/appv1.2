@@ -15,21 +15,25 @@
       </ion-title>
       <ion-item>
         <ion-label color="primary" >Distancia mínima</ion-label>
-        <h1>{{ item1 | async | json }}</h1>
         <ion-input id="min_distancia" ng-model = "min_distancia" #min_dist type="tel" placeholder="Valor en centimetros"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label color="primary" >Distancia máxima</ion-label>
-        <h1>{{ item | async | json }}</h1>
-        <ion-input type="tel" #max_dist id="max_distancia" placeholder="Valor en centimetros"></ion-input>
+        <ion-input type="tel" #max_dist id="max_distancia"  placeholder="Valor en centimetros" >   </ion-input>
       </ion-item>
-    </ion-list>
+    </ion-list> 
     
     <div text-center >
+      
       <button icon-only ion-button  on-click="pushPage_confirmar(min_dist.value, max_dist.value )" padding left>
         <ion-icon>Confirmar</ion-icon>
       </button>
+      <button icon-only ion-button   padding left>
+        <ion-icon >Ver configuracion anterior</ion-icon>
+      </button>
     </div>  
-
+ 
 
   </ion-content>  
+  
+ 

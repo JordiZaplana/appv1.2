@@ -1,0 +1,120 @@
+{
+  "placa_sensors" : {
+    "co2" : 740,
+    "historico" : {
+      "co2" : {
+        "-L9uqXP5HK5_VZ3QsOg9" : 0,
+        "-L9uqacjFzHCeEifs69m" : 452,
+        "-LAE30ZgSkjlvszcnfGO" : 400,
+        "-LAE38mMvNVwp-n5R6HG" : 530,
+        "-LAE3EUjOLhpix6pAI9a" : 561,
+        "-LAE3TElyn6sbm4t6JRz" : 615,
+        "-LAE3YfB4ZCE5DjJUBGW" : 623,
+        "-LAE3d2DJuKZQxbov575" : 646,
+        "-LAE3iQ2vFN4DIlvLTVk" : 646,
+        "-LAE3sWZCeetCHLBhcB1" : 657,
+        "-LAE3xpPidMdVhmJdtNW" : 682,
+        "-LAE44sZ1dv-N0Y313Vi" : 690,
+        "-LAE4AB8cKje4hq8cBTj" : 710,
+        "-LAE4G0W2nr9ycApx0Pq" : 710
+      },
+      "humidity" : {
+        "-L9uqY43Br8M91wEOuZG" : 54,
+        "-L9uqbGyATUJFYswAL_3" : 53,
+        "-LAE343KIr_0Lm1AvbhS" : 58,
+        "-LAE39cqYYjq1xaUYfBp" : 57,
+        "-LAE3FFIb0iHVF-l1IBz" : 57,
+        "-LAE3NmZ8wltdK2XgL0I" : 56,
+        "-LAE3U9Mtn5jKjGhlclK" : 55,
+        "-LAE3ZUlemT5IO1JFf-3" : 55,
+        "-LAE3dzGS_VwDTYUeOjK" : 54,
+        "-LAE3k2EvDvmx9N7S4rk" : 53,
+        "-LAE3u2VP6hbFodlvRvc" : 53,
+        "-LAE3yUacyw63f2FDwae" : 52,
+        "-LAE46ZFnzXoWuoNBGgQ" : 52,
+        "-LAE4BKUd9rX9hbVUkAv" : 52
+      },
+      "lux" : {
+        "-L9uqWjaizxbMmSNS_J6" : 4,
+        "-L9uq_iH-rYCBcmf8IuB" : 4,
+        "-LAE3-NOdArLh1lgNjrl" : 8,
+        "-LAE38-aCI671s0h9VfB" : 8,
+        "-LAE3Dqf52lStJEemS-V" : 8,
+        "-LAE3IXmHcpFfwbmIsek" : 8,
+        "-LAE3Ro-y0zhQ08wlleX" : 8,
+        "-LAE3XjaewzFqCoskO26" : 8,
+        "-LAE3cNpArUIr98Q4Jxg" : 8,
+        "-LAE3hhxPt5pYHR9gaFb" : 8,
+        "-LAE3rrTLPN5gIkwNApa" : 8,
+        "-LAE3xA7VX1wk1wdVj2D" : 8,
+        "-LAE444IMFQo2e595-gt" : 8,
+        "-LAE49ZavLYQGwGjGZi7" : 9,
+        "-LAE4F5di4nKJsPLX_FN" : 9,
+        "-LAE4PvCkXRI7rEr3PV9" : 8
+      },
+      "presion" : {
+        "-L9uqX3X1xs8AsJWoGO9" : 29,
+        "-L9uqaID9JAkJgzaSilL" : 29,
+        "-LAE306HZ5m-cSywimAU" : 29,
+        "-LAE38UZ-0Hace6KYY-s" : 29,
+        "-LAE3ECMabTUTRoDI0fJ" : 29,
+        "-LAE3J3m-MYPpZj5xH4z" : 29,
+        "-LAE3SwrZ1E_sGjIwP5C" : 29,
+        "-LAE3YCAtK0jJ4VqdzOv" : 29,
+        "-LAE3cjc0bl6Q9TzSELs" : 29,
+        "-LAE3i6_7Tg_l3mm_Zek" : 29,
+        "-LAE3sCknZhmINXM6Bz4" : 29,
+        "-LAE3xW_P3WVxPfMzMBw" : 29,
+        "-LAE44RD0TMqTEfNFdFa" : 29,
+        "-LAE49rv2wVW-NlqAK8M" : 29,
+        "-LAE4FVtKMdfI_gRZD8O" : 29
+      },
+      "temperatura" : {
+        "-L9uqXjYrXNl-a8be3gG" : 22,
+        "-L9uqaxWnxALDrx8MOVP" : 22,
+        "-LAE32WuBm-ZEDX0_zCv" : 24,
+        "-LAE39KVSxtFshmMQr3n" : 24,
+        "-LAE3ExfsWrRLL1YBK9X" : 24,
+        "-LAE3MrQ0GE8Ox0mkLz4" : 24,
+        "-LAE3TkskEXWz22xZSoX" : 25,
+        "-LAE3Z4W1HQjRi7Axk-9" : 25,
+        "-LAE3ddUuH1FmkkzgENV" : 25,
+        "-LAE3j591NVanpM8suwh" : 25,
+        "-LAE3tfiXJt4yWObGLq7" : 25,
+        "-LAE3yB3xvtDWwQgqEQE" : 25,
+        "-LAE45Rg2ejsqxe0wTN4" : 26,
+        "-LAE4AYACFGfEEdTp4wk" : 26,
+        "-LAE4GWFF1cIiQlQGnGw" : 26
+      },
+      "windspeed" : {
+        "-L9uqWQctXZI8JcIFoBN" : 0,
+        "-L9uq_OC_Q0cnrv7CCfw" : 0,
+        "-LAE3-2HDwgn3me8keD7" : 0,
+        "-LAE37e6oYrV_1lFjIMd" : 0,
+        "-LAE3DYG8PRKUpon-UvF" : 0,
+        "-LAE3I9xP9Wkhait5S__" : 0,
+        "-LAE3RK7Jojy2HSj5J7Y" : 0,
+        "-LAE3XGOPeySLIrbl5Ea" : 0,
+        "-LAE3boU19XDDR8bg0FP" : 0,
+        "-LAE3hM2U9HqCoagCF4Q" : 0,
+        "-LAE3rZE6RPFSmZovxrk" : 0,
+        "-LAE3woTFPVUt5XtfQEw" : 0,
+        "-LAE43lP8FVfCXsr-rZY" : 0,
+        "-LAE49AHqNpS15jFSxr8" : 0,
+        "-LAE4EdnoH69FAGfEGIX" : 0,
+        "-LAE4PbgnLXRbRuyeBJq" : 0
+      }
+    },
+    "humidity" : 51,
+    "lux" : 8,
+    "presion" : 29,
+    "temperatura" : 26,
+    "windspeed" : 0
+  },
+  "placa_vigilancia" : {
+    "control" : {
+      "config_distancia_max" : "44444444",
+      "config_distancia_min" : "4444"
+    }
+  }
+}
