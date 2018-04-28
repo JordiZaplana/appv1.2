@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
+import { firebaseConfig } from './app.constantes';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ListPage_1 } from '../pages/list_1/list_1';
@@ -12,6 +13,12 @@ import { toolsConfig_1 } from '../pages/toolsConfig/toolsConfig';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+
+
+
 
 @NgModule({
   declarations: [
@@ -27,6 +34,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,6 +50,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   providers: [
     StatusBar,
+    AngularFireDatabase,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
