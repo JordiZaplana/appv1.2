@@ -11,28 +11,48 @@
   <ion-content>
     <ion-list >
       <ion-title style="text-align:center"padding >
-        Sensor movimiento
+        Seguridad: Sensor movimiento
       </ion-title>
       <ion-item>
-        <ion-label color="primary" >Distancia mínima</ion-label>
-        <ion-input id="min_distancia" ng-model = "min_distancia" #min_dist type="tel" placeholder="Valor en centimetros"></ion-input>
+        <ion-label color="primary" style="font-size:16px;">Distancia mínima</ion-label>
+        <ion-input id="get_value_min"   #min_dist type="tel" placeholder="Valor en centimetros"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label color="primary" >Distancia máxima</ion-label>
-        <ion-input type="tel" #max_dist id="max_distancia"  placeholder="Valor en centimetros" >   </ion-input>
+        <ion-label color="primary" style="font-size:16px;">Distancia máxima </ion-label>
+        <ion-input type="tel" #max_dist id="get_value_max"    placeholder="Valor en centimetros">   </ion-input>
       </ion-item>
     </ion-list> 
     
     <div text-center >
       
-      <button icon-only ion-button  on-click="pushPage_confirmar(min_dist.value, max_dist.value )" padding left>
-        <ion-icon>Confirmar</ion-icon>
+      <button icon-only ion-button   on-click="pushPage_confirmar(min_dist.value, max_dist.value )" padding left>
+        <ion-icon style="font-size:18px;">Confirmar</ion-icon>
       </button>
-      <button icon-only ion-button   padding left>
-        <ion-icon >Ver configuracion anterior</ion-icon>
+      <button icon-only ion-button style="font-size:16px;" on-click="get_max_minValue()" padding left>
+        <ion-icon style="font-size:18px;">Ver configuracion anterior</ion-icon>
       </button>
     </div>  
  
+    <ion-list >
+      <ion-title style="text-align:center"padding >
+        Sensores: 
+      </ion-title>
+      <ion-item>
+        <ion-label color="primary" style="font-size:16px;">Tiempo</ion-label>
+        <ion-input id="set_value_millis"   #set_millis type="tel" placeholder="Valor milisegundos"></ion-input>
+      </ion-item>
+
+    </ion-list> 
+    
+    <div text-center >
+      
+      <button icon-only ion-button   on-click="setPage_confirmar(set_millis.value)" padding left>
+        <ion-icon style="font-size:18px;">Confirmar</ion-icon>
+      </button>
+      <button icon-only ion-button style="font-size:16px;" on-click="get_millisValue()" padding left>
+        <ion-icon style="font-size:18px;">Ver configuracion anterior</ion-icon>
+      </button>
+    </div>  
 
   </ion-content>  
   

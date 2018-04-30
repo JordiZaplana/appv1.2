@@ -9,22 +9,32 @@
         <ion-icon name="notifications"></ion-icon>
       </button>
     </ion-buttons>
+    
   </ion-navbar>
 </ion-header>
 <div >
-
+  
 </div >
 <ion-content padding center center>
   <h3 style="color:#000000;text-align:center;"> App Domótica</h3>
-  <div text-center >
+  <div text-center  style="margin-top:150px;">
     <button icon-only ion-button  on-click="pushPage_tools()" padding left >
       <ion-icon name="construct" ></ion-icon>
     </button>
-    <button icon-only ion-button  on-click="pushPage_tools()" padding left>
+    <button icon-only ion-button style="margin-left:10px;" on-click="pushPage_info()" padding left>
       <ion-icon name="information-circle" ></ion-icon>
     </button>
+    <div text-center >
+    <button ion-button   icon-only style="padding-left:10px;padding-right:10px;margin-top:15px;"  on-click="flame_online_placas()">
+        Estado de las placas  
+      </button>
+    </div>  
   </div>  
   
+  
+
+  <ion-label > </ion-label>
+
 </ion-content>
 
 
