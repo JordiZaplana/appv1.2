@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title style="text-align:center" >
+      Sensores
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="notifications" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  
+</ion-header>
+<ion-content padding id="page3">
+  <button id="sensores-button1" ion-button color="positive" block on-click="pushPage_his_sen()" >
+    Histórico 
+  </button>
+  <form id="sensores-form1">
+    <ion-item id="sensores-select1">
+      <ion-label>
+        En tiempo real:
+      </ion-label>
+      <ion-select #C (ionChange)="pushPage_value(C.value)">
+        <ion-option></ion-option>
+        <ion-option value="humidity">
+          Humedad
+          
+        </ion-option>
+      
+        <ion-option value="co2">
+          CO2
+        </ion-option>
+        <ion-option value="presion">
+          Presión
+        </ion-option>
+        <ion-option value="lux">
+          Luminosidad
+        </ion-option>
+        <ion-option value="temperatura">
+          Temperatura
+        </ion-option>
+      </ion-select>
+      
+    </ion-item>
+  <ion-item>
+      <ion-label id="demo" style="font-size:16px;" >
+        
+      </ion-label>
+    </ion-item>
+    <div padding ></div>
+    <div text-center>
+      <button  id="sensores-button1" style="text-align:center" ion-button color="positive"  on-click="pushPage_value(C.value)" >
+        Actualizar valor
+      </button>
+    </div>  
+  </form>
+  <div id="sensores-container1"></div>
+
+  <ion-content padding>
+
+
+

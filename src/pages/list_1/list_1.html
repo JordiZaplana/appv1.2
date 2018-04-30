@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title style="text-align:center" >
+        Seguridad
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon name="notifications"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding id="page2">
+    <button id="seguridad-button2" ion-button color="positive" block on-click="pushPage_his_seg()">
+      Historico
+    </button>
+    <form id="seguridad-form2">
+      <ion-item id="seguridad-toggle1">
+        <ion-label>
+          Manual/Automatico
+        </ion-label>
+        <ion-toggle #dataMA.value color="positive" checked="true"></ion-toggle>
+      </ion-item>
+    </form>
+  <ion-item ng-hide ="checked==false">
+    <img  src="https://firebasestorage.googleapis.com/v0/b/tfg-app-v1.appspot.com/o/images%2FIEC.jpg?alt=media&token=4e594a81-b141-4f6c-adfc-6ef488f705e8" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
+  </ion-item>
+  </ion-content>
+  
