@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { firebaseConfig, config } from './app.constantes';
+import { firebaseConfig, config } from '../app.constantes';
 import { HomePage } from '../pages/home/home'; 
 import { ListPage } from '../pages/list/list';
 import { ListPage_1 } from '../pages/list_1/list_1';

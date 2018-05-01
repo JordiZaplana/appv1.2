@@ -32,54 +32,54 @@ export class ListPage {
     console.log(this.employees);
 
    }
-   ngOnInit(){
-    
-    this.itemActivo.set("1");
-  };
+   
    getPhotoURL(image){
     firebase.storage().ref().child('images/IEC.jpg').getDownloadURL().then((url)=>{
-    this.employeePhoto = url;
+     this.employeePhoto = url;
  
    })
  };
  pushPage_his_sen() {
   this.navCtrl.push(historicoSensores_1);
   }
-  pushPage_value(Cvalue :string) {
 
 
+  pushPage_value() {
   var db = firebase.database();
-  var ref = db.ref("placa_sensors/" + Cvalue );
-  ref.on("value", function(snapshot) {
-  console.log(snapshot.val());
-  if(Cvalue=="temperatura"){
-  document.getElementById("demo").innerHTML = snapshot.val() + " ºC";
-  document.getElementById("demo1").innerHTML = " ºC";
-  }
-  else if(Cvalue=="lux"){
-    document.getElementById("demo").innerHTML = snapshot.val() + " lux";
-    document.getElementById("demo1").innerHTML =  " lux";
-    }
-    else if(Cvalue=="co2"){
-      document.getElementById("demo").innerHTML = snapshot.val() + " co2";
-      document.getElementById("demo1").innerHTML =  " lux";
-      }
-      else if(Cvalue=="humidity"){
-        document.getElementById("demo").innerHTML = snapshot.val() + " humitat";
-        document.getElementById("demo1").innerHTML =  " lux";
-        }
-        else if(Cvalue=="presion"){
-          document.getElementById("demo").innerHTML = snapshot.val() + " bar";
-          document.getElementById("demo1").innerHTML =  " lux";
-          }
-          else {
-            document.getElementById("demo").innerHTML = " ";
-            document.getElementById("demo1").innerHTML =  " ";
-            } 
-  return snapshot.val(); 
-});
-      
+  
+  console.log(vall);
+
+  let ref1 = db.ref("placa_sensors/" + "temperatura" );
+  let ref2 = db.ref("placa_sensors/" + "humidity" );
+  let ref3 = db.ref("placa_sensors/" + "presion" );
+  let ref4 = db.ref("placa_sensors/" + "co2" );
+  let ref5 = db.ref("placa_sensors/" + "lux" );
+  
+    
+  var vall=ref1.on("value", function(snapshot) {
+  var valor_real =snapshot.val();
+  document.getElementById("demo1").innerHTML = "Temperatura: " + snapshot.val() + " ºC";
+    });
+    var vall=ref2.on("value", function(snapshot) {
+      var valor_real =snapshot.val();
+      document.getElementById("demo2").innerHTML = "Humedad: " + snapshot.val() + " %";
+        });    
+        var vall=ref3.on("value", function(snapshot) {
+          var valor_real =snapshot.val();
+          document.getElementById("demo3").innerHTML = "Presión: " + snapshot.val() + " bar";
+            });
+            var vall=ref4.on("value", function(snapshot) {
+              var valor_real =snapshot.val();
+              document.getElementById("demo4").innerHTML ="Co2: " + snapshot.val() + " ppm";
+                });
+                var vall=ref5.on("value", function(snapshot) {
+                  var valor_real =snapshot.val();
+                  document.getElementById("demo5").innerHTML = "Luminosidad: " +  snapshot.val() + " lux";
+                    });                
   };
+ngOnInit(){
+  this.pushPage_value();
+
+};
 
 }
-  
