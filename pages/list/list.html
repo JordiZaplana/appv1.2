@@ -7,10 +7,11 @@
       Sensores
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
-        <ion-icon name="notifications" ></ion-icon>
-      </button>
-    </ion-buttons>
+        
+        <button id="seguridad-button2" ion-button color="positive" block on-click="pushPage_his_sen()">
+            Historico
+          </button>
+  </ion-buttons>
   </ion-navbar>
   
 </ion-header>
@@ -18,27 +19,45 @@
   <button id="sensores-button1" ion-button color="positive" block on-click="pushPage_his_sen()" >
     Histórico 
   </button>
-  <form id="sensores-form1">
-    <ion-item id="sensores-select1">
-
-
-        
-      
-    </ion-item>
-    <div padding ></div>
-    <div padding center center  text-center style="margin-top:100px">
-      
-      <ion-card   id="demo1" style="font-size:30px;" ></ion-card>
-      <ion-card   id="demo2" style="font-size:30px;" ></ion-card>
-      <ion-card   id="demo3" style="font-size:30px;" ></ion-card>
-      <ion-card   id="demo4" style="font-size:30px;" ></ion-card>
-      <ion-card   id="demo5" style="font-size:30px;" ></ion-card>
-      
-    </div>  
-    
-  </form>
+  
   
 
+
+</ion-content>
+
+<ion-content padding id="page7">
+  <ion-list id="page-list3">
+    <ion-item  >
+      <ion-label id="demo1" style="font-size:15px;">
+        Temperatura:
+      </ion-label>
+      <ion-toggle (ionChange)="notify1()" color="positive" checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item id="page-toggle4">
+      <ion-label id="demo2" style="font-size:15px;">
+        Humedad:
+      </ion-label>
+      <ion-toggle color="positive" (ionChange)="notify2()" checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item id="page-toggle5">
+      <ion-label  id="demo3" style="font-size:15px;">
+        Presión:
+      </ion-label>
+      <ion-toggle color="positive" (ionChange)="notify3()" checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item id="page-toggle6">
+      <ion-label  id="demo4" style="font-size:15px;">
+        Co2:
+      </ion-label>
+      <ion-toggle color="positive" (ionChange)="notify4()" checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item id="page-toggle7">
+      <ion-label  id="demo5" style="font-size:15px;">
+        Luminosidad:
+      </ion-label>
+      <ion-toggle color="positive" (ionChange)="notify5()" checked="false"></ion-toggle>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 

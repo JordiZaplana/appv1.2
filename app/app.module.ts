@@ -11,14 +11,14 @@ import { historicoSensores_1 } from '../pages/historicoSensores/historicoSensore
 import { historicoSeguridad_1} from '../pages/historicoSeguridad/historicoSeguridad';
 import { toolsConfig_1 } from '../pages/toolsConfig/toolsConfig';
 import { infoApp_1 } from '../pages/infoApp/infoApp';
-
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database';
 import * as firebase from "firebase";
-
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -41,6 +41,7 @@ firebase.initializeApp(config);
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    ChartsModule
     
   ],
   bootstrap: [IonicApp],

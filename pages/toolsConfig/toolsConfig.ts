@@ -17,7 +17,7 @@ import * as firebase from "firebase";
 })
 
 export class toolsConfig_1 {
-
+olaa:string='';
   //placa_sensors: FirebaseListObservable<any[]>;
 
   //items: Observable<any[]>;
@@ -27,7 +27,7 @@ export class toolsConfig_1 {
   item: Observable<any>;
   item1: Observable<any>;
   item2: Observable<any>;
-  
+public  max_min: boolean =true;
   itemMin: AngularFireObject<any>;
   itemMax: AngularFireObject<any>;
   itemMillis: AngularFireObject<any>;
@@ -60,12 +60,13 @@ export class toolsConfig_1 {
       buttons: ['Ok']
     });
     let alert_error = this.alertCtrl.create({
-      title: 'Error: tiene que ser mayor la distancia max que la min!!',
+
       buttons: ['Ok']
     });
     
       
       this.itemMillis.set(set_millis);
+      console.log(typeof set_millis   )
       alert_ok.present();
            
     
@@ -85,6 +86,7 @@ export class toolsConfig_1 {
     if (max_dist > min_dist){
       this.itemMin.set( min_dist );
       this.itemMax.set( max_dist );
+      console.log(typeof max_dist   )
       alert_ok.present();
     }
     else {
@@ -92,26 +94,33 @@ export class toolsConfig_1 {
     }
     
   };
-  get_max_minValue() {
-
+ get_max_minValue(): boolean {
+   var max_min;
+   if(max_min== true){
+   max_min=false;
+  }else {
+  max_min =true;
+  }
 
     var db = firebase.database();
     var ref = db.ref("placa_vigilancia/control/config_distancia_min");
     ref.once("value", function(snapshot) {
-    console.log(snapshot.val());
+    console.log(typeof snapshot.val());
     
-    document.getElementById("get_value_min").innerHTML = snapshot.val() + " cm";
+    document.getElementById("min1").innerHTML = snapshot.val() + " cm";
   
-    return snapshot.val(); 
+   // return snapshot.val(); 
   });
   var ref1 = db.ref("placa_vigilancia/control/config_distancia_max");
   ref1.once("value", function(snapshot) {
   console.log(snapshot.val());
   
   
-  document.getElementById("get_value_max").innerHTML = snapshot.val() + " cm";
-  return snapshot.val(); 
+  document.getElementById("max1").innerHTML = snapshot.val() + " cm";
+  //return snapshot.val(); 
 });
+
+return max_min ;
     };
 
     get_millisValue() {
@@ -120,15 +129,17 @@ export class toolsConfig_1 {
       var db = firebase.database();
       var ref = db.ref("placa_sensors/millis");
       ref.once("value", function(snapshot) {
-      console.log(snapshot.val());
+      console.log(typeof snapshot.val());
       
-    //  document.getElementById("set_value_millis").innerHTML = snapshot.val() ;
+      document.getElementById("millis1").innerHTML = snapshot.val() + " ms" ;
     
       return snapshot.val(); 
     });
     
       };
 
+
+      
       
 }
 

@@ -14,12 +14,14 @@
         Seguridad: Sensor movimiento
       </ion-title>
       <ion-item>
-        <ion-label color="primary" style="font-size:16px;">Distancia mínima</ion-label>
-        <ion-input id="get_value_min"   #min_dist type="tel" placeholder="Valor en centimetros"></ion-input>
+        <ion-label color="primary" style="font-size:16px;"> Distancia mínima </ion-label>
+        <ion-input id="get_value_min"   #min_dist type="text" placeholder="Valor en centimetros"></ion-input>
+        <ion-label  id="min1" ng-if="get_max_minValue()==false" color="primary" style="font-size:16px;color:darkgreen; "></ion-label>
       </ion-item>
       <ion-item>
         <ion-label color="primary" style="font-size:16px;">Distancia máxima </ion-label>
-        <ion-input type="tel" #max_dist id="get_value_max"    placeholder="Valor en centimetros">   </ion-input>
+        <ion-input type="text"  #max_dist id="get_value_max"    placeholder="Valor en centimetros">   </ion-input>
+        <ion-label  id="max1" color="primary" style="font-size:16px;color:darkgreen;"> </ion-label>
       </ion-item>
     </ion-list> 
     
@@ -39,7 +41,8 @@
       </ion-title>
       <ion-item>
         <ion-label color="primary" style="font-size:16px;">Tiempo</ion-label>
-        <ion-input id="set_value_millis"   #set_millis type="tel" placeholder="Valor milisegundos"></ion-input>
+        <ion-input id="set_value_millis"   #set_millis type="text" placeholder="Valor en segundos"></ion-input>
+        <ion-label  id="millis1" color="primary" style="font-size:16px;color:darkgreen;"> </ion-label>
       </ion-item>
 
     </ion-list> 

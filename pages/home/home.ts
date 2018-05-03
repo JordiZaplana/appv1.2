@@ -9,6 +9,8 @@ import { Observable } from 'rxjs/Observable';
 
 import { AlertController } from 'ionic-angular';
 
+import { historicoSensores_1 } from '../historicoSensores/historicoSensores';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -17,25 +19,30 @@ export class HomePage {
 
   item3: Observable<any>;
   itemActivo: AngularFireObject<any>;
+  itemOnline: AngularFireObject<any>;
+  public  flag: boolean =false;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,public db: AngularFireDatabase) {
     this.itemActivo = db.object('placa_sensors/active');
     this.item3 = this.itemActivo.valueChanges();
+    this.itemOnline = db.object('placa_sensors/online');
+
   }
   pushPage_tools() {
     this.navCtrl.push(toolsConfig_1);
-  }
-
-  ngOnInit(){
-    
-    this.itemActivo.set("0");
   };
 
   pushPage_info() {
     this.navCtrl.push(infoApp_1);
-  }
+  };
+
+  pushPage_his_sen() {
+    this.navCtrl.push(historicoSensores_1);
+    };
 
   flame_online_placas() {
+    var ee = this.itemOnline.snapshotChanges();     
+
     var db = firebase.database();
     var ref4 = db.ref("placa_sensors/online");
     let alert_online = this.alertCtrl.create({
@@ -46,28 +53,43 @@ export class HomePage {
       title: 'Oops! La placa de sensores esta offline!',
       buttons: ['Ok']
     });
-    ref4.once("value", function(snapshot) {
-      console.log(snapshot.val());
+
+    var eee= ref4.once("value", function(snapshot) {
+      //console.log(snapshot.val());
+      var changedPost = snapshot.val();
+      console.log("The updated post title is " + changedPost.title);
     
 
-    if(snapshot.val()=="1"  ){
+      var flag;
+    if(snapshot.val()== "0"  ){
+       flag=true;
+       alert_online.present();     
+      
+      
+    //}else if(snapshot.val()=="0"){
   
-      alert_online.present();
-    }else if(snapshot.val()=="0"){
-  
-      alert_offline.present();
+      //alert_offline.present();
     }else{
-  
+
       alert_offline.present();
+
     }
-  
-    return snapshot.val(); 
+
+    
+  return snapshot.val();
   });
-  this.flame_online_placa_camara();
+  //console.log(eee);
+  //this.flame_online_placa_camara();
+
+  
+  
   };
+  
+  
 
-
+/*
   flame_online_placa_camara() {
+    this.itemActivo.set(1);
     var db = firebase.database();
     var ref4 = db.ref("placa_vigilancia/online");
     let alert_online = this.alertCtrl.create({
@@ -82,12 +104,12 @@ export class HomePage {
       console.log(snapshot.val());
     
 
-    if(snapshot.val()=="1"  ){
+    if(snapshot.val()=="0"  ){
   
     return  alert_online.present();
-    }else if(snapshot.val()=="0"){
+    //}else if(snapshot.val()=="0"){
   
-    return   alert_offline.present();
+    //return   alert_offline.present();
     }else{
   
     return  alert_offline.present();
@@ -96,6 +118,7 @@ export class HomePage {
      
   });
   };
+  */
 /*******************************************************************************************/
     //ngOnInit(){
     //this.flame_online_placas();         DESCOMENTAR !!!!!!
