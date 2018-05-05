@@ -6,24 +6,16 @@
     <ion-title style="text-align:center" >
       Sensores
     </ion-title>
-    <ion-buttons end>
-        
-        <button id="seguridad-button2" ion-button color="positive" block on-click="pushPage_his_sen()">
-            Historico
-          </button>
-  </ion-buttons>
+
   </ion-navbar>
   
 </ion-header>
-<ion-content padding id="page3">
-  <button id="sensores-button1" ion-button color="positive" block on-click="pushPage_his_sen()" >
-    Histórico 
-  </button>
+
   
   
 
 
-</ion-content>
+
 
 <ion-content padding id="page7">
   <ion-list id="page-list3">
@@ -45,12 +37,7 @@
       </ion-label>
       <ion-toggle color="positive" (ionChange)="notify3()" checked="false"></ion-toggle>
     </ion-item>
-    <ion-item id="page-toggle6">
-      <ion-label  id="demo4" style="font-size:15px;">
-        Co2:
-      </ion-label>
-      <ion-toggle color="positive" (ionChange)="notify4()" checked="false"></ion-toggle>
-    </ion-item>
+
     <ion-item id="page-toggle7">
       <ion-label  id="demo5" style="font-size:15px;">
         Luminosidad:
@@ -58,6 +45,12 @@
       <ion-toggle color="positive" (ionChange)="notify5()" checked="false"></ion-toggle>
     </ion-item>
   </ion-list>
+  <div style="display:block;" >  
+    <canvas #lineCanvas >
+    
+    
+    </canvas>
+  </div>  
 </ion-content>
 
 

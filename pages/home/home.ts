@@ -9,14 +9,14 @@ import { Observable } from 'rxjs/Observable';
 
 import { AlertController } from 'ionic-angular';
 
-import { historicoSensores_1 } from '../historicoSensores/historicoSensores';
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  itemActiveReal;
   item3: Observable<any>;
   itemActivo: AngularFireObject<any>;
   itemOnline: AngularFireObject<any>;
@@ -26,7 +26,8 @@ export class HomePage {
     this.itemActivo = db.object('placa_sensors/active');
     this.item3 = this.itemActivo.valueChanges();
     this.itemOnline = db.object('placa_sensors/online');
-
+    this.itemActiveReal = db.object('placa_sensors/config/activereal');
+    this.itemActiveReal.set("null");
   }
   pushPage_tools() {
     this.navCtrl.push(toolsConfig_1);
@@ -36,9 +37,7 @@ export class HomePage {
     this.navCtrl.push(infoApp_1);
   };
 
-  pushPage_his_sen() {
-    this.navCtrl.push(historicoSensores_1);
-    };
+  
 
   flame_online_placas() {
     var ee = this.itemOnline.snapshotChanges();     

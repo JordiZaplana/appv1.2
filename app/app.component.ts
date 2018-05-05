@@ -9,7 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ListPage_1 } from '../pages/list_1/list_1';
 
-import { historicoSensores_1 } from '../pages/historicoSensores/historicoSensores';
+
 import { historicoSeguridad_1 } from '../pages/historicoSeguridad/historicoSeguridad';
 import { toolsConfig_1 } from '../pages/toolsConfig/toolsConfig';
 import { infoApp_1 } from '../pages/infoApp/infoApp';

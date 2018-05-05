@@ -41,7 +41,7 @@ public  max_min: boolean =true;
   
     this.itemMin = db.object('placa_vigilancia/control/config_distancia_min');
     this.itemMax = db.object('placa_vigilancia/control/config_distancia_max');
-    this.itemMillis = db.object('placa_sensors/millis');
+    this.itemMillis = db.object('placa_sensors/config/millis');
     
     this.item = this.itemMax.valueChanges();
     this.item1 = this.itemMin.valueChanges();
@@ -65,7 +65,7 @@ public  max_min: boolean =true;
     });
     
       
-      this.itemMillis.set(set_millis);
+      this.itemMillis.set(Number(set_millis));
       console.log(typeof set_millis   )
       alert_ok.present();
            
@@ -127,7 +127,7 @@ return max_min ;
 
 
       var db = firebase.database();
-      var ref = db.ref("placa_sensors/millis");
+      var ref = db.ref("placa_sensors/config/millis");
       ref.once("value", function(snapshot) {
       console.log(typeof snapshot.val());
       
