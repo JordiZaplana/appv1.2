@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
-
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { FirebaseListObservable} from 'angularfire2/database-deprecated';
 import { Observable } from 'rxjs/Observable';
@@ -16,6 +15,7 @@ import * as firebase from "firebase";
   templateUrl: 'toolsConfig.html'
 })
 
+
 export class toolsConfig_1 {
 olaa:string='';
   //placa_sensors: FirebaseListObservable<any[]>;
@@ -27,11 +27,13 @@ olaa:string='';
   item: Observable<any>;
   item1: Observable<any>;
   item2: Observable<any>;
+  item3: Observable<any>;
 public  max_min: boolean =true;
   itemMin: AngularFireObject<any>;
   itemMax: AngularFireObject<any>;
   itemMillis: AngularFireObject<any>;
-  
+  itemMode: AngularFireObject<any>;
+public isToggledM: boolean;
   
 
 //
@@ -42,10 +44,12 @@ public  max_min: boolean =true;
     this.itemMin = db.object('placa_vigilancia/control/config_distancia_min');
     this.itemMax = db.object('placa_vigilancia/control/config_distancia_max');
     this.itemMillis = db.object('placa_sensors/config/millis');
-    
+    this.itemMode = db.object('placa_vigilancia/control/manual');
+
     this.item = this.itemMax.valueChanges();
     this.item1 = this.itemMin.valueChanges();
     this.item2 = this.itemMillis.valueChanges();
+    this.item3 = this.itemMode.valueChanges();
     
   
   
@@ -137,11 +141,26 @@ return max_min ;
     });
     
       };
-
-
+       set_mode() {
+        
       
-      
-}
+        this.isToggledM=!this.isToggledM;
+        if(this.isToggledM==false){
+          this.itemMode.set(1);
+          console.log(this.isToggledM);
+        }else {
+          this.itemMode.set(0);
+          console.log(this.isToggledM);
+        }
+
+      };
+
+    ngOnInit(){
+      this.itemMode.set(1);
+      console.log(this.isToggledM);
+    };
+    
+    }
 
 
 

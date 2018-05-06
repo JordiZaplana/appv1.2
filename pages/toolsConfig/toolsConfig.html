@@ -11,29 +11,17 @@
   <ion-content>
     <ion-list >
       <ion-title style="text-align:center"padding >
-        Seguridad: Sensor movimiento
+        Modo:
       </ion-title>
-      <ion-item>
-        <ion-label color="primary" style="font-size:16px;"> Distancia mínima </ion-label>
-        <ion-input id="get_value_min"   #min_dist type="text" placeholder="Valor en centimetros"></ion-input>
-        <ion-label  id="min1" ng-if="get_max_minValue()==false" color="primary" style="font-size:16px;color:darkgreen; "></ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label color="primary" style="font-size:16px;">Distancia máxima </ion-label>
-        <ion-input type="text"  #max_dist id="get_value_max"    placeholder="Valor en centimetros">   </ion-input>
-        <ion-label  id="max1" color="primary" style="font-size:16px;color:darkgreen;"> </ion-label>
+      <ion-item  >
+        <ion-label id="demo1"  color="primary" style="font-size:16px;">
+          Modo manual/automatico:
+        </ion-label>
+        <ion-toggle (ionChange)="set_mode()" color="positive" checked="false"></ion-toggle>
       </ion-item>
     </ion-list> 
     
-    <div text-center >
-      
-      <button icon-only ion-button   on-click="pushPage_confirmar(min_dist.value, max_dist.value )" padding left>
-        <ion-icon style="font-size:18px;">Confirmar</ion-icon>
-      </button>
-      <button icon-only ion-button style="font-size:16px;" on-click="get_max_minValue()" padding left>
-        <ion-icon style="font-size:18px;">Ver configuracion anterior</ion-icon>
-      </button>
-    </div>  
+    
  
     <ion-list >
       <ion-title style="text-align:center"padding >
