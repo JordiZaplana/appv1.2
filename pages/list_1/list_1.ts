@@ -37,6 +37,8 @@ export class ListPage_1 {
 public getFoto(){
 
   this.itemManual.set(1);
+  var  referenHtml = document.getElementById("demo5");
+  referenHtml.innerHTML = "<img src=\"https://firebasestorage.googleapis.com/v0/b/tfg-app-v1.appspot.com/o/alert%2F%0908%3A58%3A23.jpg?alt=media&token=06a015c8-0fa2-4e74-88d8-be473828b406\" width=\"400px\" height=\"150px\">";
   
 };
 
