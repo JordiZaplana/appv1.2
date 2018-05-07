@@ -33,6 +33,7 @@ public  max_min: boolean =true;
   itemMax: AngularFireObject<any>;
   itemMillis: AngularFireObject<any>;
   itemMode: AngularFireObject<any>;
+  itemModeA: AngularFireObject<any>;
 public isToggledM: boolean;
   
 
@@ -45,13 +46,15 @@ public isToggledM: boolean;
     this.itemMax = db.object('placa_vigilancia/control/config_distancia_max');
     this.itemMillis = db.object('placa_sensors/config/millis');
     this.itemMode = db.object('placa_vigilancia/control/manual');
+    this.itemModeA = db.object('placa_vigilancia/control/auto');
 
     this.item = this.itemMax.valueChanges();
     this.item1 = this.itemMin.valueChanges();
     this.item2 = this.itemMillis.valueChanges();
-    this.item3 = this.itemMode.valueChanges();
+    this.item3 = this.itemModeA.valueChanges();
     
   
+    this.set_mode();
   
 
   } 
@@ -146,17 +149,17 @@ return max_min ;
       
         this.isToggledM=!this.isToggledM;
         if(this.isToggledM==false){
-          this.itemMode.set(1);
+          this.itemModeA.set(0);
           console.log(this.isToggledM);
         }else {
-          this.itemMode.set(0);
+          this.itemModeA.set(1);
           console.log(this.isToggledM);
         }
 
       };
 
     ngOnInit(){
-      this.itemMode.set(1);
+      this.itemModeA.set(0);
       console.log(this.isToggledM);
     };
     

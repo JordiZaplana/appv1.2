@@ -19,6 +19,8 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 
 import {Transfer, TransferObject} from '@ionic-native/transfer';
 import {File} from '@ionic-native/file';
+import { delay } from 'rxjs/operator/delay';
+import { AsyncValidator } from '@angular/forms';
 
 declare var cordova: any;
 
@@ -33,13 +35,21 @@ declare var cordova: any;
 })
 export class ListPage_1 {
   storageDirectory: string = '';
-  someTextUrl;
-
+  someTextUrl:Observable<any>;;
+  someTextUr4:Observable<any>;;
+tt;
   item3: Observable<any>;
   itemManual: AngularFireObject<any>;
   booll; 
   profileUrl: Observable<string | null>;
   constructor(public navCtrl: NavController, af: AngularFireDatabase, public platform: Platform, private transfer: Transfer, private file: File, public alertCtrl: AlertController) {
+  
+  
+  
+    //this.getTFoto();
+
+
+
 
   firebase.storage().ref('manual/manual.jpg').getDownloadURL()
   .then(response => this.someTextUrl = response)
@@ -68,42 +78,69 @@ export class ListPage_1 {
   pushPage_his_seg() {
   this.navCtrl.push(historicoSeguridad_1);
   };
-  getSomeText() {
-    firebase.storage().ref('manual/manual.jpg').getDownloadURL()
-      .then(response => this.someTextUrl = response)
-      .catch(error => console.log('error', error))
-  };
-
- 
-
-public getFoto(){
-//  const storage = firebase.storage()
-  //let locationRef = storage.ref('cats/cat1.jpg')
-/*
-  let image = storage.ref('manual/manual.jpg')
-  image.getMetadata().then(function(metadata) {
-    document.getElementById('batteryID').src = "https://firebasestorage.googleapis.com/v0/b/tfg-app-v1.appspot.com/o/manual%2Fmanual.jpg?alt=media&token=4e594a81-b141-4f6c-adfc-6ef488f705e8";
-  });    
   
-  //https://firebasestorage.googleapis.com/v0/b/tfg-app-v1.appspot.com/o/images%2FIEC.jpg?alt=media&token=4e594a81-b141-4f6c-adfc-6ef488f705e8
-  storage.ref("manual/manual.jpg" ).getDownloadURL().then(function(url) {
-    console.log(url);
-    return url;
-  }).catch(function(error) {
-    // Handle any errors here
-  });
-*/
 
+  
+  public getTFoto(){
+    this.itemManual.set(1);
+    
+    
+        var commentsRef = firebase.database().ref('placa_vigilancia/control/nombreHora/').orderByValue();
+        commentsRef.on('child_added', function(childSnapshot) {
+          var childKey = childSnapshot.key;
+          var childData = childSnapshot.val();
+          console.log("segundo!!!! ");
+          console.log(childData);
+          console.log(childKey);
+          
+          
+            
+
+            var ttt=firebase.storage().ref('alert/' + childData + '.jpg').getDownloadURL()
+
+           
+          firebase.storage().ref('manual/' + "manual" + '.jpg').getDownloadURL();
+          
+          document.getElementById("demo5").innerHTML = "<a href =\"" + ttt + "\">";        
+          
+        });
+        
+
+
+        
+  };
+  sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+      if ((new Date().getTime() - start) > milliseconds){
+        break;
+      }
+    }
+  };
+public getFoto():AsyncValidator{
   //HACER UN FOR!!
+  var delM = firebase.storage().ref('manual/manual.jpg');
 
-this.itemManual.set(1);
+  this.itemManual.set(1);
+  this.sleep(500);
+  this.sleep(500);
+// Delete the file
+delM.delete().then(function() {
+  // File deleted successfully
+}).catch(function(error) {
+  
+});
+
+this.sleep(500);
+
+
 firebase.storage().ref('manual/manual.jpg').getDownloadURL()
   .then(response => this.someTextUrl = response)
   .catch(error => console.log('error', error))
 
   //var aTag = document.createElement('demo5');
   //aTag.innerHTML = this.someTextUrl;
-var name = "<script>'<a href='" + this.someTextUrl + "'>Google</a>'</script>";
+var name = "<script >'<a href='" + this.someTextUrl + "'>Google</a>'</script>";
 
 //  link
   document.getElementById("demo4").innerHTML=name;
@@ -116,7 +153,7 @@ var name = "<script>'<a href='" + this.someTextUrl + "'>Google</a>'</script>";
     //                                  https://firebasestorage.googleapis.com/v0/b/tfg-app-v1.appspot.com/o/manual%2Fmanual.jpg?alt=media&token=274bf110-3f11-4510-9973-8c1883a5b80b
   //referenHtml.innerHTML = ;
  
-  
+return ;  
 
   
 };
