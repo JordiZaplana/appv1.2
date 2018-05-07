@@ -233,7 +233,7 @@ export class ListPage {
       });
       this.labelMaster="lux";
       this.basicChart(this.xArray,this.yArray,this.labelMaster);
-      
+      //document.getElementById("graf1").innerHTML =;
       });
      }else{
       document.getElementById("demo5").innerHTML ="Luminosidad: ";
