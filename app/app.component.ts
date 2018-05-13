@@ -3,9 +3,16 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+
+
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ListPage_1 } from '../pages/list_1/list_1';
+
+
+import { historicoSeguridad_1 } from '../pages/historicoSeguridad/historicoSeguridad';
+import { toolsConfig_1 } from '../pages/toolsConfig/toolsConfig';
+import { infoApp_1 } from '../pages/infoApp/infoApp';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,6 +25,7 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+    
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -25,6 +33,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Sensores', component: ListPage },
       { title: 'Seguridad', component: ListPage_1 }
+
     ];
 
   }

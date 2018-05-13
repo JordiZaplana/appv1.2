@@ -6,41 +6,52 @@
     <ion-title style="text-align:center" >
       Sensores
     </ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only>
-        <ion-icon name="notifications"></ion-icon>
-      </button>
-    </ion-buttons>
+
   </ion-navbar>
+  
 </ion-header>
-<ion-content padding id="page3">
-  <button id="sensores-button1" ion-button color="positive" block on-click="goToHistRicoSensores()">
-    Histórico
-  </button>
-  <form id="sensores-form1">
-    <ion-item id="sensores-select1">
-      <ion-label>
-        En tiempo real:
+
+  
+  
+
+
+
+
+<ion-content padding id="page7">
+  <ion-list id="page-list3">
+    <ion-item  >
+      <ion-label id="demo1" style="font-size:15px;">
+        Temperatura:
       </ion-label>
-      <ion-select name="">
-        <ion-option></ion-option>
-        <ion-option>
-          Humedad
-        </ion-option>
-        <ion-option>
-          CO2
-        </ion-option>
-        <ion-option>
-          Presión
-        </ion-option>
-        <ion-option>
-          Luminosidad
-        </ion-option>
-        <ion-option>
-          Temperatura
-        </ion-option>
-      </ion-select>
+      <ion-toggle (ionChange)="notify1()" color="positive" checked="false"></ion-toggle>
     </ion-item>
-  </form>
-  <div id="sensores-container1"></div>
+    <ion-item id="page-toggle4">
+      <ion-label id="demo2" style="font-size:15px;">
+        Humedad:
+      </ion-label>
+      <ion-toggle color="positive" (ionChange)="notify2()" checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item id="page-toggle5">
+      <ion-label  id="demo3" style="font-size:15px;">
+        Presión:
+      </ion-label>
+      <ion-toggle color="positive" (ionChange)="notify3()" checked="false"></ion-toggle>
+    </ion-item>
+
+    <ion-item id="page-toggle7">
+      <ion-label  id="demo5" style="font-size:15px;">
+        Luminosidad:
+      </ion-label>
+      <ion-toggle color="positive" (ionChange)="notify5()" checked="false"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <div style="display:block;" >  
+    <canvas #lineCanvas >
+    
+    
+    </canvas>
+  </div>  
 </ion-content>
+
+
+

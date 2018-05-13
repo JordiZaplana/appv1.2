@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title style="text-align:center" >
+        Ajustes
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+    <ion-list >
+      <ion-title style="text-align:center"padding >
+        Modo:
+      </ion-title>
+      <ion-item  >
+        <ion-label id="demo1"  color="primary" style="font-size:16px;">
+          Modo automatico:
+        </ion-label>
+        <ion-toggle (ionChange)="set_mode()" color="positive" checked="false"></ion-toggle>
+      </ion-item>
+    </ion-list> 
+    
+    
+ 
+    <ion-list >
+      <ion-title style="text-align:center"padding >
+        Sensores: 
+      </ion-title>
+      <ion-item>
+        <ion-label color="primary" style="font-size:16px;">Tiempo</ion-label>
+        <ion-input id="set_value_millis"   #set_millis type="text" placeholder="Valor en milisegundos"></ion-input>
+        <ion-label  id="millis1" color="primary" style="font-size:16px;color:darkgreen;"> </ion-label>
+      </ion-item>
+
+    </ion-list> 
+    
+    <div text-center >
+      
+      <button icon-only ion-button   on-click="setPage_confirmar(set_millis.value)" padding left>
+        <ion-icon style="font-size:18px;">Confirmar</ion-icon>
+      </button>
+      <button icon-only ion-button style="font-size:16px;" on-click="get_millisValue()" padding left>
+        <ion-icon style="font-size:18px;">Ver configuracion anterior</ion-icon>
+      </button>
+    </div>  
+
+  </ion-content>  
+  
+ 
