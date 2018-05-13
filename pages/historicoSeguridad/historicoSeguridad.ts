@@ -35,6 +35,7 @@ ttttt:String;
 xArray:any[]=[];
 yArray:any[]=[];
 rray:any[]=[];
+asa:any[]=[];
 
   public dateRef:Array<any>;
   constructor(public navCtrl: NavController, af: AngularFireDatabase) {
@@ -49,43 +50,7 @@ rray:any[]=[];
     //for (let index = 0; index < this.list1.length; index++) {
 
     console.log( typeof(this.items2));
-      this.items4 = firebase.database().ref('placa_vigilancia/control/nombreHora').orderByKey();
-      this.items4.on('value', (snapshot) => {
-      snapshot.forEach((childSnapshot) => {
-      this.rray.push(childSnapshot.key);
-      
-      this.yArray.push(childSnapshot.val());
-      
-    });
-    var a = [];
-    var b = [];
 
-    for(var i in this.rray){
-        if(this.rray.hasOwnProperty(i)){
-          a.push(i);
-          b.push(this.rray[i]);
-        }
-       //document.getElementById("demo5").innerHTML  ="<a href =\"" + b[i] + "\">"
-      
-      
-    }
-      console.log(a);
-      for (let i = 0; i < b.length; i++) {
-        console.log(b[i].toString());
-        
-        firebase.storage().ref().child('alert/' + b[i].toString() +'.jpg').getDownloadURL()
-        .then(response => this.someTextUrl = response)        
-        .catch(error => console.log('error', error))    
-        //document.getElementsByClassName("demo5")[i].innerHTML  ="<a href =\"" + b + "\">"
-      
-
-      }
-              
-
-      //document.getElementById("graf1").innerHTML =;
-  
-
-      });
 
 
 
@@ -148,7 +113,68 @@ rray:any[]=[];
 //    http://javasampleapproach.com/frontend/angular/angular-4-firebase-display-list-images-firebase-storage#3_Get_and_display_List_of_Images  
       //
      
-    var www =  firebase.storage().ref('alert');
+        this.items4 = firebase.database().ref('placa_vigilancia/control/nombreHora').orderByValue();
+      this.items4.on('value', (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+      this.rray.push(childSnapshot.key);
+      
+      this.yArray.push(childSnapshot.val());
+      
+    });
+    var a = [];
+    var b = [];
+
+    for(var i in this.rray){
+        if(this.rray.hasOwnProperty(i)){
+          a.push(i);
+          b.push(this.rray[i]);
+        }
+       //document.getElementById("demo5").innerHTML  ="<a href =\"" + b[i] + "\">"
+      
+      
+    }
+      console.log(a);
+      for (let i = 0; i < b.length-1; i++) {
+        //console.log(b[i].toString());
+        
+        firebase.storage().ref().child('alert/' + b[i].toString() +'.jpg').getDownloadURL().then(function(url) {
+          // `url` is the download URL for 'images/stars.jpg'
+        
+          // This can be downloaded directly:
+          var xhr = new XMLHttpRequest();
+          xhr.responseType = 'blob';
+          xhr.onload = function(event) {
+            var blob = xhr.response;
+          };
+          xhr.open('GET', url);
+          xhr.send();
+        
+          // Or inserted into an <img> element:
+          var img = document.getElementById('myimg');
+         
+            var asa =[];
+              asa.push(url.split(","));
+              console.log(url);
+
+              //console.log(typeof(asa[i]));
+              //console.log(String(asa[i]));
+          
+           // document.getElementById("mydiv").innerHTML += "<div  class='holder'><span class='charValue'>"+asa[i]+"</span></br></div>";
+            document.getElementById("mydiv").innerHTML += "<div  ><a href=" + url + " >" + b[i] + "</a></br></div>";
+
+
+
+        }).catch(function(error) {
+          // Handle any errors
+        });
+
+      }
+              
+
+      //document.getElementById("graf1").innerHTML =;
+  
+
+      });
     //for (let index =this.items; index <this.items.length; index++ {
       
     //}
