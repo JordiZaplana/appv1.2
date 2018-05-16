@@ -1,20 +1,55 @@
-<ion-header>
-    <ion-navbar>
+<ion-header style="background-color:#488aff;">
+    <ion-navbar  style="background-color:#488aff;">
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
+      
       <ion-title style="text-align:center" >
         Seguridad
       </ion-title>
       <ion-buttons end>
-        <button ion-button icon-only>
-          <ion-icon name="notifications"></ion-icon>
-        </button>
-      </ion-buttons>
+      <button id="seguridad-button2" end on-click="pushPage_his_seg()" ion-button>
+        Historico
+      </button>
+    </ion-buttons>
     </ion-navbar>
   </ion-header>
   <ion-content padding id="page2">
-    <button id="seguridad-button2" ion-button color="positive" block on-click="goToHistRicoSeguridad()">
-      Historico
-    </button>
-  </ion-content>
+
+    <form id="seguridad-form2" text-center>
+      <ion-item id="seguridad-toggle1" text-center>
+        <button id="seguridad-t" ion-button color="positive" block on-click="confirmGetFoto()" style="margin-top:6px;margin-bottom:6px;padding-top:36px;padding-bottom:36px;font-size:17px;" >
+          Hacer foto
+        </button>
+        <a href={{someTextUrl}}>Descargar foto</a>
+        
+
+      </ion-item>
+    </form>
+  <ion-item >
+  </ion-item>
+ 
+  
+  
+      
+    <div text-center>
+
+
+      
+    <img src={{someTextUrl}} >
+   
+
+
+
+
+
+  </div>
+  
+
+
+  
+
+
+</ion-content>
+  
+  

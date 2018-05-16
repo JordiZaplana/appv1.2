@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,Platform, AlertController, LoadingController } from 'ionic-angular';
-import { historicoSeguridad_1 } from '../historicoSeguridad/historicoSeguridad';
+import { NavController } from 'ionic-angular';
 
 import { AngularFireDatabase ,AngularFireList,AngularFireObject  } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
@@ -12,47 +11,55 @@ import { AngularFireModule } from 'angularfire2';
 //import { AngularFireStorageModule } from 'angularfire2/storage';
 //import { AngularFireStorage } from 'angularfire2/storage';
 import * as firebase from "firebase";
-
-
-//__________________________________________________
-
-
-
-
-
-
-
+import { Scope } from '@angular/core/src/profile/wtf_impl';
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list_1.html',
-
-
+  templateUrl: 'historicoSeguridad.html'
 })
-export class ListPage_1 {
+export class historicoSeguridad_1 {
   storageDirectory: string = '';
-  someTextUrl:Observable<any>;
+  someTextUrl;
   someTextUr4:Observable<any>;
   ttt;
   item3;
   itemManual: AngularFireObject<any>;
   booll; 
   profileUrl: Observable<string | null>;
-  items: Observable<any>;
-  itemMa;
-  nameurl;
+  items;
+  items4;
+  items2;
+  list12;
 olaa:String;
 ttttt:String;
-gff;
-public name;
-  public dateRef;
-  constructor(public navCtrl: NavController, af: AngularFireDatabase, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
-    
+xArray:any[]=[];
+yArray:any[]=[];
+rray:any[]=[];
+asa:any[]=[];
+
+  public dateRef:Array<any>;
+  constructor(public navCtrl: NavController, af: AngularFireDatabase) {
   
-    this.itemMa = af.object('placa_vigilancia/control/manual').valueChanges().subscribe(data=>{
+  
+    this.items = af.list('placa_vigilancia/control/nombreHora').valueChanges().subscribe(data=>{
       //this code runs asynchronous
-      this.itemMa=data
+      this.items2=data
     });
+    
+
+    //for (let index = 0; index < this.list1.length; index++) {
+
+    console.log( typeof(this.items2));
+
+
+
+
+
+    //}
+            
+              // time to remove 'bar'!
+              // this is the correct way to change an array
+             
     //console.log(this.items.toString());
     
  /* firebase.storage().ref('alert/' + this.items + '.jpg').getDownloadURL()
@@ -61,7 +68,7 @@ public name;
   //this.getTFoto();
   console.log(this.someTextUrl);
 */
-console.log(typeof(this.itemMa) );
+
 /*
   firebase.storage().ref('manual/manual.jpg').getDownloadURL()
   .then(response => this.someTextUrl = response)
@@ -70,8 +77,23 @@ console.log(typeof(this.itemMa) );
 
 
     this.itemManual = af.object('placa_vigilancia/control/manual');
-    //this.item3 = this.itemManual.valueChanges();
+    this.item3 = this.itemManual.valueChanges();
   }
+
+   snapshotToArray(snapshot) {
+    var returnArr = [];
+
+    snapshot.forEach(function(childSnapshot) {
+        var item = childSnapshot.val();
+        item.key = childSnapshot.key;
+
+        returnArr.push(item);
+    });
+
+    return returnArr;
+};
+
+
   pushPage_his_seg() {
     this.navCtrl.push(historicoSeguridad_1);
   };
@@ -83,20 +105,88 @@ console.log(typeof(this.itemMa) );
   
 
 
-  getTFotot() : String{
-      
+  getTFot() {
+    
+
+
+
 //    http://javasampleapproach.com/frontend/angular/angular-4-firebase-display-list-images-firebase-storage#3_Get_and_display_List_of_Images  
       //
      
-    var www =  firebase.storage().ref('alert');
-    
-    this.dateRef = www.child("/" + this.items + '.jpg').getDownloadURL;
-    
-    console.log(this.dateRef[1]);
-    this.olaa=this.dateRef.toString();
+        this.items4 = firebase.database().ref('placa_vigilancia/control/nombreHora').orderByValue();
+      this.items4.on('value', (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+      this.rray.push(childSnapshot.key);
+      
+      this.yArray.push(childSnapshot.val());
+      
+    });
+    var a = [];
+    var b = [];
+
+    for(var i in this.rray){
+        if(this.rray.hasOwnProperty(i)){
+          a.push(i);
+          b.push(this.rray[i]);
+        }
+       //document.getElementById("demo5").innerHTML  ="<a href =\"" + b[i] + "\">"
+      
+      
+    }
+      console.log(a);
+      for (let i = 0; i < b.length-1; i++) {
+        //console.log(b[i].toString());
+        
+        firebase.storage().ref().child('alert/' + b[i].toString() +'.jpg').getDownloadURL().then(function(url) {
+          // `url` is the download URL for 'images/stars.jpg'
+        
+          // This can be downloaded directly:
+          var xhr = new XMLHttpRequest();
+          xhr.responseType = 'blob';
+          xhr.onload = function(event) {
+            var blob = xhr.response;
+          };
+          xhr.open('GET', url);
+          xhr.send();
+        
+          // Or inserted into an <img> element:
+          var img = document.getElementById('myimg');
+         
+            var asa =[];
+              asa.push(url.split(","));
+              console.log(url);
+
+              //console.log(typeof(asa[i]));
+              //console.log(String(asa[i]));
+          
+           // document.getElementById("mydiv").innerHTML += "<div  class='holder'><span class='charValue'>"+asa[i]+"</span></br></div>";
+            document.getElementById("mydiv").innerHTML += "<ion-list><div  ><a href=" + url + " >" + b[i] + "</a></br></div></ion-list>";
 
 
-    return this.olaa[1]
+
+        }).catch(function(error) {
+          // Handle any errors
+        });
+
+      }
+              
+
+      //document.getElementById("graf1").innerHTML =;
+  
+
+      });
+    //for (let index =this.items; index <this.items.length; index++ {
+      
+    //}
+     //www.child("/" + this.items + '.jpg').getDownloadURL().subscribe(url=>{
+      //this code runs asynchronous
+      //this.dateRef=url;
+    //});
+    
+    
+    
+
+    
 
 
     /*
@@ -115,7 +205,7 @@ this.dd= firebase.storage().ref('alert/' + String(this.items) + '.jpg').getDownl
     
   
   public getTFoto(){
-    //this.itemManual.set(1);
+    this.itemManual.set(1);
     
     
         var commentsRef = firebase.database().ref('placa_vigilancia/control/nombreHora/').orderByValue();
@@ -133,7 +223,7 @@ this.dd= firebase.storage().ref('alert/' + String(this.items) + '.jpg').getDownl
             var www =  firebase.storage().ref('alert');
     
             this.dateRef = www.child("/" + childData + '.jpg').getDownloadURL;
-            this.navCtrl.push(ListPage_1,this.dateRef.toString());
+            
             //return this.dateRef.toString();
            
           //firebase.storage().ref('manual/' + "manual" + '.jpg').getDownloadURL();
@@ -162,95 +252,7 @@ this.dd= firebase.storage().ref('alert/' + String(this.items) + '.jpg').getDownl
       }
     }
   };
-public getFoto(){
-  //HACER UN FOR!!
-  
-  this.sleep(500);
-  this.sleep(500);
-  this.loadingD();
 
-firebase.storage().ref('manual/manual.jpg').getDownloadURL()
-  .then(response => this.someTextUrl = response)
-  .catch(error => console.log('error', error))
-
-  //var aTag = document.createElement('demo5');
-  //aTag.innerHTML = this.someTextUrl;
- //this.nameurl = "<script >'<a href='" + this.someTextUrl + "'>Google</a>'</script>";
-console.log(this.someTextUrl);
-//var name = "<img src =\"" + this.gff + "\">";
-//this.name = "<script >'<img src =\"" + this.someTextUrl + "\">'</script>";
-//  link
- // document.getElementById("demo4").innerHTML="<script >'<a href='" + this.someTextUrl + "'>Google</a>'</script>";
-//
-  //  foto
-  //document.getElementById("demo5").innerHTML = "<img src =\"" + this.someTextUrl + "\">";
-
-  //var  referenHtml = document.getElementById("demo5");
-  //referenHtml.innerHTML = "<img src=\"https://firebasestorage.googleapis.com/v0/b/tfg-app-v1.appspot.com/o/manual%2Fmanual.jpg?alt=media&token=3b66c29a-bbc9-4236-ac8d-49e6cb1bbb2e\" width=\"400px\" height=\"150px\">";
-    //                                  https://firebasestorage.googleapis.com/v0/b/tfg-app-v1.appspot.com/o/manual%2Fmanual.jpg?alt=media&token=274bf110-3f11-4510-9973-8c1883a5b80b
-  //referenHtml.innerHTML = ;
-  
-return ;  
-
-  
-};
-AlertOops() {
-  let alert = this.alertCtrl.create({
-    title: 'Oops algo ha ido mal!',
-    subTitle: 'Vuelve a intentarlo',
-    buttons: ['Aceptar']
-  });
-  alert.present();
-};
-
-confirmGetFoto() {
-  //var delM = firebase.storage().ref('manual/manual.jpg');
- 
-  this.itemManual.set(1);
-  this.sleep(500);
-  this.sleep(500);
-  this.sleep(500);
-  this.sleep(500);
-// Delete the file
-
-this.sleep(500);
-this.getFoto();
-
-  let alert = this.alertCtrl.create({
-    
-    title: 'Se esta realizando la foto!',
-    
-    buttons: [
-      
-      {
-        text: 'Aceptar',
-        handler: () => {
-          
-            
-        
-          
-
-          
-
-       
-          
-        }
-      }
-    ]
-  });
-  alert.present();
-};
-loadingD() {
-  let loading = this.loadingCtrl.create({
-    content: 'Espere por favor...'
-  });
-
-  loading.present();
-
-  setTimeout(() => {
-    loading.dismiss();
-  }, 8000);
-};
 
   
 }
